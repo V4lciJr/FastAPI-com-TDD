@@ -3,6 +3,7 @@ from typing import Optional, Annotated
 
 from bson import Decimal128
 from pydantic import Field, AfterValidator
+from datetime import datetime
 
 from store.schemas.base import BaseSchemaMixin, OutMixin
 
@@ -33,6 +34,8 @@ class ProductUpdate(BaseSchemaMixin):
     quantity: Optional[int] = Field(None, description="Product quantity")
     price: Optional[Decimal_] = Field(None, description="Product price")
     status: Optional[bool] = Field(None, description="Product Status")
+
+    updated_at: Optional[datetime] = Field(None, description="Product update")
 
 
 class ProductUpdateOut(ProductOut):
